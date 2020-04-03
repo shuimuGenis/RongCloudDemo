@@ -1,0 +1,26 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.project.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.project.minSdkVersion
+        targetSdkVersion rootProject.ext.project.targetSdkVersion
+        versionCode rootProject.ext.project.versionCode
+        versionName rootProject.ext.project.versionName
+    }
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            res.srcDirs = ['res']
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+}
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+    api rootProject.ext.android.support_compat
+    api rootProject.ext.implementlibs.gson
+    api project(':IMKit')
+}

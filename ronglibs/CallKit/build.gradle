@@ -1,0 +1,32 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.project.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.project.minSdkVersion
+        targetSdkVersion rootProject.ext.project.targetSdkVersion
+        versionCode rootProject.ext.project.versionCode
+        versionName rootProject.ext.project.versionName
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+    api project(':CallLib')
+    api rootProject.ext.android.support_v4
+    api rootProject.ext.android.support_v7
+    api rootProject.ext.implementlibs.glide
+    api  rootProject.ext.implementlibs.gson
+}
+//apply from: './bintray.gradle'

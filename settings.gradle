@@ -1,0 +1,15 @@
+include ':app'
+
+include ':CallLib'
+project(':CallLib').projectDir = new File(settingsDir, './ronglibs/CallLib')
+
+include ':CallKit'
+project(':CallKit').projectDir = new File(settingsDir, './ronglibs/CallKit')
+
+include ':IMKit'
+project(':IMKit').projectDir = new File(settingsDir, './ronglibs/IMKit')
+
+include ':IMLib'
+project(':IMLib').projectDir = new File(settingsDir, './ronglibs/IMLib')
+
+rootProject.name = 'RongCloud'
